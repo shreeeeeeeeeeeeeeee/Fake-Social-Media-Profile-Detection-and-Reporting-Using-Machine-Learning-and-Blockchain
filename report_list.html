@@ -1,0 +1,24 @@
+<h2>Local Reports (Database)</h2>
+<table>
+    <tr><th>User</th><th>Profile</th><th>Reason</th><th>Timestamp</th></tr>
+    {% for report in db_reports %}
+    <tr>
+        <td>{{ report.user.username }}</td>
+        <td>{{ report.reported_profile }}</td>
+        <td>{{ report.reason }}</td>
+        <td>{{ report.timestamp }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Blockchain Reports (Ethereum)</h2>
+<table>
+    <tr><th>Profile</th><th>Reason</th><th>Timestamp</th></tr>
+    {% for report in blockchain_reports %}
+    <tr>
+        <td>{{ report.reported_profile }}</td>
+        <td>{{ report.reason }}</td>
+        <td>{{ report.timestamp }}</td>
+    </tr>
+    {% endfor %}
+</table>

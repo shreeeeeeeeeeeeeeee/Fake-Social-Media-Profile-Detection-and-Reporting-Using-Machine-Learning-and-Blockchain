@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'images/Hacker1.jpg' %}"); /* Dark background */
+            background-size: cover;
+            background-position: center;
+            color: #fff; /* White text for visibility */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, color 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        h1:hover, h2:hover, h3:hover {
+            transform: scale(1.1); /* Slightly enlarge the title on hover */
+            color: #4CAF50; /* Change color on hover */
+        }
+
+        .content-container {
+            background: #1c1c1c;
+            border-radius: 20px;
+            padding: 30px 40px;
+            box-shadow: 9px 9px 16px #0e0e0e, -9px -9px 16px #2a2a2a;
+            width: 80%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        .prediction {
+            background: #1c1c1c;
+            border-radius: 20px;
+            padding: 20px 30px;
+            margin-bottom: 20px;
+            box-shadow: 9px 9px 16px #0e0e0e, -9px -9px 16px #2a2a2a;
+        }
+
+        .prediction p {
+            font-size: 18px;
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .visualizations {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .visualization {
+            background: #1c1c1c;
+            border-radius: 20px;
+            padding: 20px;
+            width: 48%;
+            box-shadow: 9px 9px 16px #0e0e0e, -9px -9px 16px #2a2a2a;
+        }
+
+        .visualization img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 4px 4px 8px #0e0e0e, -4px -4px 8px #2a2a2a;
+        }
+
+        .visualization h3 {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-container">
+        <!-- Title -->
+        
+        
+        <!-- Predictions -->
+        <div class="prediction">
+            <h1>Prediction Results</h1>
+            <p><strong style="color: #4CAF50;">Random Forest:</strong> {{ rf_prediction }}</p>
+            <p><strong style="color: rgb(255, 0, 200);">SVM:</strong> {{ svm_prediction }}</p>
+            <p><strong style="color: aqua;">ANN:</strong> {{ ann_prediction }}</p>
+            <p><strong>Consensus:</strong> {{ consensus }}</p>
+        </div>
+
+        <!-- Visualizations (Pie Chart on left, Bar Chart on right) -->
+        <div class="visualizations">
+            <div class="visualization">
+                <h3>Pie Chart</h3>
+                <img src="data:image/png;base64,{{ pie_chart }}" alt="Pie Chart">
+            </div>
+
+            <div class="visualization">
+                <h3>Bar Chart</h3>
+                <img src="data:image/png;base64,{{ bar_chart }}" alt="Bar Chart">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
