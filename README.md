@@ -1,0 +1,2 @@
+# Fake-Social-Media-Profile-Detection-and-Reporting-Using-Machine-Learning-and-Blockchain
+This project aims to detect and report fake profiles on social networking platforms by leveraging Machine Learning and Blockchain technologies. Using models like Random Forest and XGBoost, profiles are classified based on behavioral and textual features with high accuracy. Blockchain is integrated to securely log and verify detection events.
